@@ -38,24 +38,25 @@ function optionHandler(e) {
   optionO.classList.add("optionButtonStyle");
   e.currentTarget.classList.remove("optionButtonStyle");
   e.currentTarget.classList.add("optionButtonStyle2");
-  //console.log("it works");
 }
 
 function submitHandler(e) {
   e.preventDefault();
-
-  if (selection_X.checked || selection_O.checked) {
+  if (selection_O.checked) {
+    circleTurn = true;
+    startForm.classList.add("hide");
+    board.classList.add("show");
+  } else if (selection_X.checked) {
+    circleTurn = false;
     startForm.classList.add("hide");
     board.classList.add("show");
   } else {
-    alert("Please select one option.");
+    alert("please select an option");
   }
+  startGame();
 }
 
-startGame();
-
 function startGame() {
-  circleTurn = false;
   cellElement.forEach((cell) => {
     cell.classList.remove(x_class);
     cell.classList.remove(circle_class);
@@ -70,6 +71,7 @@ function startGame() {
 function handleClick(e) {
   const cell = e.target;
   const currentClass = circleTurn ? circle_class : x_class;
+  console.log(circleTurn);
   placeMark(cell, currentClass);
   if (checkWin(currentClass)) {
     endGame(false);
@@ -80,7 +82,6 @@ function handleClick(e) {
     setBoardHoverClass();
   }
 }
-
 function isDraw() {
   return [...cellElement].every((cell) => {
     return (
