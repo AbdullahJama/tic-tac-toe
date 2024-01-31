@@ -6,9 +6,56 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="main.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <div class="boardStyle">
+    <div class="boardStyle container-fluid">
+      <div class="formStyle" id="startForm">
+        <h1 class="text-center display-1 fw-medium headerStyle">Tic Tac Toe</h1>
+        <form action="" class="text-center">
+          <h2 class="text-center my-4 headerStyle">Choose a Symbol:</h2>
+          <div class="mt-4">
+            <label
+              class="btn rounded-0 btn-lg optionButtonStyle mx-3"
+              id="optionx"
+            >
+              <input
+                type="radio"
+                name="option"
+                id="xOption"
+                value="x"
+                class="visually-hidden"
+              />
+              <span class="fw-medium display-6">X</span>
+            </label>
+            <label
+              class="btn rounded-0 btn-lg optionButtonStyle mx-3"
+              id="optiono"
+            >
+              <input
+                type="radio"
+                name="option"
+                id="oOption"
+                value="o"
+                class="visually-hidden"
+              />
+              <span class="fw-medium display-6">O</span>
+            </label>
+          </div>
+          <button
+            class="btn btn-lg text-center rounded-0 text-white submitButton mt-5"
+            id="submitButton"
+          >
+            Start Game
+          </button>
+        </form>
+      </div>
+
       <div class="board" id="board">
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
@@ -22,8 +69,14 @@
       </div>
       <div class="winning-message" id="winningMessage">
         <div data-winning-message-text></div>
-        <button id="restartButton">Restart</button>
+        <button class="btn btn-lg rounded-0" id="restartButton">Restart</button>
       </div>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

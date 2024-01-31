@@ -17,11 +17,42 @@ let circleTurn;
 const winningTextMessageElement = document.querySelector(
   "[data-winning-message-text]"
 );
+
 const reStartButton = document.getElementById("restartButton");
+const optionX = document.getElementById("optionx");
+const optionO = document.getElementById("optiono");
+const submitBtn = document.getElementById("submitButton");
+const selection_X = document.getElementById("xOption");
+const selection_O = document.getElementById("oOption");
+const startForm = document.getElementById("startForm");
+
+optionX.addEventListener("click", optionHandler);
+optionO.addEventListener("click", optionHandler);
+submitBtn.addEventListener("click", submitHandler);
+reStartButton.addEventListener("click", startGame);
+
+function optionHandler(e) {
+  optionX.classList.remove("optionButtonStyle2");
+  optionX.classList.add("optionButtonStyle");
+  optionO.classList.remove("optionButtonStyle2");
+  optionO.classList.add("optionButtonStyle");
+  e.currentTarget.classList.remove("optionButtonStyle");
+  e.currentTarget.classList.add("optionButtonStyle2");
+  //console.log("it works");
+}
+
+function submitHandler(e) {
+  e.preventDefault();
+
+  if (selection_X.checked || selection_O.checked) {
+    startForm.classList.add("hide");
+    board.classList.add("show");
+  } else {
+    alert("Please select one option.");
+  }
+}
 
 startGame();
-
-reStartButton.addEventListener("click", startGame);
 
 function startGame() {
   circleTurn = false;
